@@ -1,0 +1,47 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 70px;
+}
+.inputgroup {
+    margin-bottom: 10px;
+}
+    .inputgrouptext {
+        padding-top: 7px;
+        padding-bottom: 7.5px;
+        padding-left: 20px;
+        padding-right: 5px;
+        border-left: 1px solid #adb5bd;
+        border-top: 1px solid #adb5bd;
+        border-bottom: 1px solid #adb5bd;
+    }
+    
+    input[type=text] {
+      padding: 5px;
+      border: 1px solid #adb5bd;
+    }
+    input:focus{
+        outline: 1px solid #00acee;
+    }
+
+    .mybtn {
+        color: #fff;
+        background-color: #00acee;
+        border-radius: 0;
+        margin: 10px 0px;
+        width: 273px;
+    }
+
+    .mybtn:hover {
+        color: #cdd5dd;
+    }
+
+    a:visited {
+        color: #8e97a0;
+    }
+
+    a {
+        color: #8e97a0;
+    }

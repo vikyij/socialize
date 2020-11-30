@@ -46,8 +46,8 @@ const Center = () => {
         const data = {
             posts,
             "createdAt": new Date(),
-            like,
-            count: countLike
+            like: false,
+            countLike: 0,
         }
 
         SocialService.create(data)
@@ -81,6 +81,7 @@ const Center = () => {
                 posts: data.posts,
                 createdAt: data.createdAt,
                 like: data.like,
+                countLike: data.countLike,
             })
         })
         setShowPost(posts)
@@ -121,13 +122,14 @@ const Center = () => {
     //update like and countLike
     const updateLike = (id) => {
         setLike(!like)
-        console.log(like)
+        setCountLike(prevCount => like === true ? prevCount + 1 : prevCount)
         SocialService.update(id, {
             like,
+            countLike,
         })
             .then(() => {
                 console.log("successfully updated")
-                console.log(posts)
+                console.log(like)
             })
             .catch((error) => {
                 console.log(error)
@@ -179,8 +181,8 @@ const Center = () => {
                                         <p style={{ 'display': 'flex', 'justifyContent': 'space-between', 'color': '#89898C' }}>
                                             <p><FaRegComment /> <span style={{ 'fontSize': '12px' }}>110</span></p>
                                             <p><FaRetweet /> <span style={{ 'fontSize': '12px' }}>300</span></p>
-                                            <p><FaRegHeart style={{ color: post.like == true ? "red" : null }} onClick={() => updateLike(post.id)} /> 
-                                             <span style={{ 'fontSize': '12px' }}>1000</span></p>
+                                            <p><FaRegHeart style={{ color: post.like == true ? "red" : null }} onClick={() => updateLike(post.id)} />
+                                                <span style={{ 'fontSize': '12px' }}>{post.like === true ? 1 : 0}</span></p>
                                             <FaRegTrashAlt style={{ color: "red" }} onClick={() => handleDialogOpen(post.id)} />
                                         </p>
                                     </div>
