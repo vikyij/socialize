@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from  '@material-ui/core/ListItemText'
@@ -11,15 +11,21 @@ import { FiSettings } from 'react-icons/fi';
 import './rightsidebar.css'
 
 const RightSideBar = () => {
+    const [scroll, setScroll] = useState(0)
+  const Scroll = () => {
+      setScroll(window.pageYOffset)
+  }
+  
+
     return (
-        <div className='right-hand mx-4'>
-            <div className="input-group mb-3">
+        <div className={scroll> 400 ? 'scrolls right-hand mx-4' : 'right-hand mx-4'} onMouseOver={Scroll}>
+            <div className="input-group mb-3" style={{"position": "sticky", "top": "0", "zIndex": "1", "backgroundColor": "white", "paddingBottom": "5px"}}>
                 <div className="input-group-prepend">
                     <span className="input-group-text" style={{ 'border': '0px', 'borderRadius': '50px 0px 0px 50px' }}><FiSearch /></span>
                 </div>
                 <input type="text" className="form-control"
                     placeholder="Search Twitter"
-                    style={{ 'backgroundColor': '#e9ecef', 'border': '0px', 'borderRadius': '0px 50px 50px 0px' }} />
+                    style={{ 'backgroundColor': '#e9ecef', 'border': '0px', 'borderRadius': '0px 50px 50px 0px', "padding": "3px" }} />
             </div>
 
             <div className='trends mb-3'>

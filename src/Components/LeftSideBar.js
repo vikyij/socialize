@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef} from 'react';
 import { FaTwitter } from "react-icons/fa";
 import { FaHome } from "react-icons/fa";
 import { FaRegEnvelope } from "react-icons/fa";
@@ -18,11 +18,14 @@ import Avatar from '@material-ui/core/Avatar';
 import './leftsidebar.css'
 
 
+
 const LeftSideBar = () => {
+    
+
     return (
-        <div className='left-side'>
+        <div className='left-side' style={{"overflow": "auto", "position": "fixed", "height": "670px"}}>
             <div className=''>
-                <button type='button' className='btn item' id='icon-1' style={{ 'color': '#00acee' }}> 
+                <button type='button' className='btn item' id='icon-1' style={{ 'color': '#00acee' }}>
                     <FaTwitter className='icon' />
                 </button>
             </div>
