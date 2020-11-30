@@ -16,3 +16,8 @@
        font-weight: bold;
        border-radius: 50px;
 }
+
+.scrolls {
+    position: sticky;
+    top: 0;
+}
