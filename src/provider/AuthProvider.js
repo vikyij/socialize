@@ -14,13 +14,21 @@ const AuthProvider = (props) => {
         return authmethods.signup(inputs.email,inputs.password, setErrors, setToken)
     }
 
+    const handleLogin = () => {
+        // middle man between firebase and signup 
+        console.log('handlelogin')
+        // calling signup from firebase server
+        return authmethods.signin(inputs.email,inputs.password, setErrors, setToken)
+    }
+
     return (
         <firebaseAuth.Provider
             value={{
                 handleSignup,
                 inputs,
                 setInputs,
-                errors
+                errors, 
+                handleLogin
             }}>
             {props.children}
 

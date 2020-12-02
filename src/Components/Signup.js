@@ -52,7 +52,7 @@ const Signup = () => {
                 <button className={`btn ${styles.mybtn}`}>SIGN UP</button>
                 {errors.length > 0 ? errors.map(err => <p style={{color: "red"}}>{err}</p>) : null}
             </form>
-            <p style={{ color: "#adb5bd", fontSize: "15px" }}>Already have an account? <span style={{ color: "#8e97a0" }}><Link to="/">Sign in <FaArrowRight style={{ width: "20px", height: "20px", color: "#8c8686" }} /></Link></span></p>
+            <p style={{ color: "#adb5bd", fontSize: "15px" }}>Already have an account? <span style={{ color: "#8e97a0" }}><Link to="/login">Sign in <FaArrowRight style={{ width: "20px", height: "20px", color: "#8c8686" }} /></Link></span></p>
         </div>
     )
 }
