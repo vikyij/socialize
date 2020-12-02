@@ -4,7 +4,7 @@ import { FaArrowRight } from 'react-icons/fa'
 import { FaUser } from 'react-icons/fa'
 import { FaLock } from 'react-icons/fa'
 import { IoIosMail } from 'react-icons/io'
-import { Link } from 'react-router-dom'
+import { Link} from 'react-router-dom'
 
 import styles from './login.module.css'
 import { firebaseAuth } from '../provider/AuthProvider'
