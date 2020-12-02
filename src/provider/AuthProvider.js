@@ -21,14 +21,20 @@ const AuthProvider = (props) => {
         return authmethods.signin(inputs.email,inputs.password, setErrors, setToken)
     }
 
+    const handleSignout = () => {
+        return authmethods.signout(setErrors, setToken)
+    }
+
     return (
         <firebaseAuth.Provider
             value={{
-                handleSignup,
                 inputs,
                 setInputs,
-                errors, 
-                handleLogin
+                errors,
+                token, 
+                handleLogin,
+                handleSignup,
+                handleSignout
             }}>
             {props.children}
 

@@ -3,13 +3,13 @@ import { FiTwitter } from 'react-icons/fi'
 import { FaArrowRight } from 'react-icons/fa'
 import { FaUser } from 'react-icons/fa'
 import { FaLock } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import { Link, withRouter  } from 'react-router-dom'
 
 
 import styles from './login.module.css'
 import { firebaseAuth } from '../provider/AuthProvider'
 
-const Login = () => {
+const Login = (props) => {
     const { inputs, setInputs, errors, handleLogin } = useContext(firebaseAuth)
 
     const handleChange = (e) => {
@@ -21,6 +21,8 @@ const Login = () => {
        e.preventDefault()
        console.log("handlesubmit")
        await handleLogin()
+       //push home
+       props.history.push("/")
    }
 
     return (
@@ -38,9 +40,9 @@ const Login = () => {
                 <button className={`btn ${styles.mybtn}`}>SIGN IN</button>
                 {errors.length > 0 ? errors.map(err => <p style={{color: "red"}}>{err}</p>) : null}
             </form>
-            <p style={{ color: "#adb5bd", fontSize: "15px" }}>Not a member? <span style={{ color: "#8e97a0" }}><Link to="/">Sign up now <FaArrowRight style={{ width: "20px", height: "20px", color: "#8c8686" }} /></Link></span></p>
+            <p style={{ color: "#adb5bd", fontSize: "15px" }}>Not a member? <span style={{ color: "#8e97a0" }}><Link to="/signup">Sign up now <FaArrowRight style={{ width: "20px", height: "20px", color: "#8c8686" }} /></Link></span></p>
         </div>
     )
 }
 
-export default Login
+export default withRouter(Login)

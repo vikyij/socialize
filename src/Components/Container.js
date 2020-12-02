@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Center from './Center'
 import LeftSideBar from './LeftSideBar'
 import RightSideBar from './RightSideBar'
 import Grid from '@material-ui/core/Grid'
 
+import { firebaseAuth } from '../provider/AuthProvider'
 
 const Container = () => {
+    const {handleSignout} = useContext(firebaseAuth)
+
     return (
         <div style={{'margin': '5px 20px'}}>
             <Grid container >
@@ -19,6 +22,7 @@ const Container = () => {
                     <RightSideBar />
                 </Grid>
             </Grid>
+            <button onClick={handleSignout}>sign out </button>
           </div>  
     )
 }

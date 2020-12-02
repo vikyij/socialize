@@ -9,13 +9,13 @@ import { firebaseAuth } from './provider/AuthProvider'
 import './App.css';
 
 function App() {
-  const { handleSignup } = useContext(firebaseAuth)
-  console.log(handleSignup)
+  const { token } = useContext(firebaseAuth)
   return (
     <div className="App">
       <Switch>
+        <Route exact path="/" render={rProps => token === null ? <Login />: <Container/>}/>
         <Route exact path="/login" component={Login} />
-        <Route exact path="/" component={Signup}/>
+        <Route exact path="/signup" component={Signup}/>
       </Switch>
     </div>
   );
